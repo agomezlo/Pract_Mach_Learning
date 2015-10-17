@@ -37,10 +37,19 @@ arm&lt;-grep("[^fore]arm",names(training), value=FALSE)
 forearm&lt;-grep("forearm",names(training), value=FALSE)
 dumbbell&lt;-grep("dumbbell",names(training), value=FALSE)
 classe&lt;-grep("classe",names(training), value=FALSE)
+
+training&lt;-training[,c(user,belt, arm, forearm, dumbbell, classe)]
+testing&lt;-testing[,c(user,belt, arm, forearm, dumbbell, classe)]
 </code></pre>
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating pages manually</h3>
+<h2>
+<a id="cleaning-the-data" class="anchor" href="#cleaning-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cleaning the data</h2>
+
+<p>Remove variables which contain just NA vales.</p>
+
+<pre><code>training&lt;-training[,apply(apply(training,2,is.na),2,sum)==0]
+testing&lt;-testing[,apply(apply(testing,2,is.na),2,sum)==0]
+</code></pre>
 
 <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
