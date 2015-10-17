@@ -88,6 +88,8 @@ combPred &lt;- predict(combModFit,newdata=predDF)
 confusionMatrix(combPred, test$classe) # Accuracy : 0.9925 
 </code></pre>
 
+<p>As can be appreciated, the accuracy obtained after combining some models does not improve the accuracy obtained using Random Forest. That is the reason the model 6 which use Randon Forest will be used instead of the combination of models.</p>
+
 <h2>
 <a id="final-prediction-on-the-test-set" class="anchor" href="#final-prediction-on-the-test-set" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final prediction on the test set</h2>
 
