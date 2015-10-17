@@ -19,10 +19,12 @@
     </section>
 
     <section class="main-content">
-      <p><strong>Practice Machine Learning Writeup</strong></p>
+      <p><strong># Practice Machine Learning Writeup</strong></p>
 
 <h2>
-<a id="load-the-data" class="anchor" href="#load-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load the data</h2>
+<a id="loading-the-data" class="anchor" href="#loading-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loading the data</h2>
+
+<p>Unuseful values as "","NA","#DIV/0!" are eliminated from the training data.</p>
 
 <pre><code>training&lt;- read.csv("~/Desktop/.../pml-training.csv", na.strings=c("","NA","#DIV/0!"))
 testing&lt;- read.csv("~/Desktop/.../pml-testing.csv")
@@ -30,6 +32,8 @@ testing&lt;- read.csv("~/Desktop/.../pml-testing.csv")
 
 <h2>
 <a id="select-useful-features" class="anchor" href="#select-useful-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Select useful features</h2>
+
+<p>Detecting the features, we may remove features useful for the analysis ()</p>
 
 <pre><code>user&lt;-grep("user",names(training), value=FALSE) 
 belt&lt;-grep("belt",names(training), value=FALSE) 
@@ -40,7 +44,19 @@ classe&lt;-grep("classe",names(training), value=FALSE)
 
 training&lt;-training[,c(user,belt, arm, forearm, dumbbell, classe)]
 testing&lt;-testing[,c(user,belt, arm, forearm, dumbbell, classe)]
+
+&gt; names(training)
 </code></pre>
+
+<p>[1] "user_name"            "roll_belt"            "pitch_belt"           "yaw_belt"             "total_accel_belt"     "gyros_belt_x"<br>
+ [7] "gyros_belt_y"         "gyros_belt_z"         "accel_belt_x"         "accel_belt_y"         "accel_belt_z"         "magnet_belt_x"<br>
+[13] "magnet_belt_y"        "magnet_belt_z"        "roll_arm"             "pitch_arm"            "yaw_arm"              "total_accel_arm"<br>
+[19] "gyros_arm_x"          "gyros_arm_y"          "gyros_arm_z"          "accel_arm_x"          "accel_arm_y"          "accel_arm_z"<br>
+[25] "magnet_arm_x"         "magnet_arm_y"         "magnet_arm_z"         "roll_forearm"         "pitch_forearm"        "yaw_forearm"<br>
+[31] "total_accel_forearm"  "gyros_forearm_x"      "gyros_forearm_y"      "gyros_forearm_z"      "accel_forearm_x"      "accel_forearm_y"<br>
+[37] "accel_forearm_z"      "magnet_forearm_x"     "magnet_forearm_y"     "magnet_forearm_z"     "roll_dumbbell"        "pitch_dumbbell"<br>
+[43] "yaw_dumbbell"         "total_accel_dumbbell" "gyros_dumbbell_x"     "gyros_dumbbell_y"     "gyros_dumbbell_z"     "accel_dumbbell_x"<br>
+[49] "accel_dumbbell_y"     "accel_dumbbell_z"     "magnet_dumbbell_x"    "magnet_dumbbell_y"    "magnet_dumbbell_z"    "classe"  </p>
 
 <h2>
 <a id="cleaning-the-data" class="anchor" href="#cleaning-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cleaning the data</h2>
