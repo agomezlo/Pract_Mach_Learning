@@ -63,7 +63,7 @@ combModFit <- train(classe ~.,method="gbm",data=predDF) # the new model
 combPred <- predict(combModFit,newdata=predDF)
 confusionMatrix(combPred, test$classe) # Accuracy : 0.9925 
 
-# Finally, Random Forest model is used to do prediction on testing set.
+# Finally, Random Forest model is used to predict on testing set.
 
 predict(mod6,testing) 
 
