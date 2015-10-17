@@ -51,6 +51,34 @@ testing&lt;-testing[,c(user,belt, arm, forearm, dumbbell, classe)]
 testing&lt;-testing[,apply(apply(testing,2,is.na),2,sum)==0]
 </code></pre>
 
+<h2>
+<a id="building-some-models-getting-the-best-accuracy" class="anchor" href="#building-some-models-getting-the-best-accuracy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building some models: getting the best accuracy.</h2>
+
+<pre><code>mod1 &lt;- train(classe ~.,method="lda",data=train)
+pred1&lt;-predict(mod1,test)
+confusionMatrix(pred1, test$classe) # Accuracy : 0.7276 
+
+mod2 &lt;- train(classe ~.,method="svmLinear",data=train) # support vector machine
+pred2&lt;-predict(mod2,test)
+confusionMatrix(pred2, test$classe) # Accuracy : 0.8034
+
+mod3 &lt;- train(classe ~.,method="gbm",data=train) # boosting
+pred3&lt;-predict(mod3,test)
+confusionMatrix(pred3, test$classe) # Accuracy : 0.9601 
+
+mod4 &lt;- train(classe ~.,method="pcaNNet",data=train) # Neural Networks with Feature Extraction
+pred4&lt;-predict(mod4,test)
+confusionMatrix(pred4, test$classe) # Accuracy : 0.6348
+
+mod5 &lt;- train(classe ~.,method="rpart",data=train) # model based tree
+pred5&lt;-predict(mod5,test)
+confusionMatrix(pred5, test$classe) # Accuracy : 0.4748 
+
+mod6 &lt;- train(classe ~.,method="rf",data=train, trControl=trainControl(method="cv"), number=3) # randomforest
+pred6&lt;-predict(mod6,test)
+confusionMatrix(pred6, test$classe) # Accuracy : 0.9925  
+</code></pre>
+
 <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
 
 <h3>
