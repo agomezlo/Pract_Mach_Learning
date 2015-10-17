@@ -58,7 +58,7 @@ confusionMatrix(pred6, test$classe) # Accuracy : 0.9925
 # The combination of model does not improve the accuracy.
 # --
 
-predDF <- data.frame(pred1,pred2,pred3,pred4, pred5, pred6, classe=test$classe)
+predDF <- data.frame(pred1,pred2,pred3,pred4,pred5,pred6, classe=test$classe)
 combModFit <- train(classe ~.,method="gbm",data=predDF) # the new model
 combPred <- predict(combModFit,newdata=predDF)
 confusionMatrix(combPred, test$classe) # Accuracy : 0.9925 
