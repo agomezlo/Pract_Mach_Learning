@@ -24,19 +24,19 @@
 <h2>
 <a id="load-the-data" class="anchor" href="#load-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load the data</h2>
 
-<pre><code>`training&lt;- read.csv("~/Desktop/.../pml-training.csv", na.strings=c("","NA","#DIV/0!"))`
-`testing&lt;- read.csv("~/Desktop/.../pml-testing.csv")`
+<pre><code>training&lt;- read.csv("~/Desktop/.../pml-training.csv", na.strings=c("","NA","#DIV/0!"))
+testing&lt;- read.csv("~/Desktop/.../pml-testing.csv")
 </code></pre>
 
 <h2>
 <a id="select-useful-features" class="anchor" href="#select-useful-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Select useful features</h2>
 
-<pre><code>`user&lt;-grep("user",names(training), value=FALSE) `
-`belt&lt;-grep("belt",names(training), value=FALSE) `
-`arm&lt;-grep("[^fore]arm",names(training), value=FALSE)`
-`forearm&lt;-grep("forearm",names(training), value=FALSE)`
-`dumbbell&lt;-grep("dumbbell",names(training), value=FALSE)`
-`classe&lt;-grep("classe",names(training), value=FALSE)`
+<pre><code>user&lt;-grep("user",names(training), value=FALSE) 
+belt&lt;-grep("belt",names(training), value=FALSE) 
+arm&lt;-grep("[^fore]arm",names(training), value=FALSE)
+forearm&lt;-grep("forearm",names(training), value=FALSE)
+dumbbell&lt;-grep("dumbbell",names(training), value=FALSE)
+classe&lt;-grep("classe",names(training), value=FALSE)
 </code></pre>
 
 <h3>
