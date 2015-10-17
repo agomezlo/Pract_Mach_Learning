@@ -19,7 +19,7 @@
     </section>
 
     <section class="main-content">
-      <p>*<em>Practice Machine Learning Writeup</em></p>
+      <p><strong>Practice Machine Learning Writeup</strong></p>
 
 <h2>
 <a id="load-the-data" class="anchor" href="#load-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load the data</h2>
@@ -93,7 +93,7 @@ confusionMatrix(combPred, test$classe) # Accuracy : 0.9925
 <h2>
 <a id="final-prediction-on-the-test-set" class="anchor" href="#final-prediction-on-the-test-set" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final prediction on the test set</h2>
 
-<pre><code>predict(mod6,testing) 
+<pre><code>pred6&lt;-predict(mod6,test)
 
 confusionMatrix(pred6, test$classe)
 Confusion Matrix and Statistics
