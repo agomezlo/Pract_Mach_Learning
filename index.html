@@ -74,9 +74,18 @@ mod5 &lt;- train(classe ~.,method="rpart",data=train) # model based tree
 pred5&lt;-predict(mod5,test)
 confusionMatrix(pred5, test$classe) # Accuracy : 0.4748 
 
-mod6 &lt;- train(classe ~.,method="rf",data=train, trControl=trainControl(method="cv"), number=3) # randomforest
+mod6 &lt;- train(classe ~.,method="rf",data=train, trControl=trainControl(method="cv"), number=3) # RF
 pred6&lt;-predict(mod6,test)
 confusionMatrix(pred6, test$classe) # Accuracy : 0.9925  
+</code></pre>
+
+<h2>
+<a id="model-which-combine-predictors" class="anchor" href="#model-which-combine-predictors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model which combine predictors.</h2>
+
+<pre><code>predDF &lt;- data.frame(pred1,pred2,pred3,pred4,pred5,pred6, classe=test$classe)
+combModFit &lt;- train(classe ~.,method="gbm",data=predDF) # the new model
+combPred &lt;- predict(combModFit,newdata=predDF)
+confusionMatrix(combPred, test$classe) # Accuracy : 0.9925 
 </code></pre>
 
 <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
