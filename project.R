@@ -11,9 +11,10 @@ arm<-grep("[^fore]arm",names(training), value=FALSE)
 forearm<-grep("forearm",names(training), value=FALSE)
 dumbbell<-grep("dumbbell",names(training), value=FALSE)
 classe<-grep("classe",names(training), value=FALSE)
+id<-grep("id",names(testing), value=FALSE)
 
 training<-training[,c(user,belt, arm, forearm, dumbbell, classe)]
-testing<-testing[,c(user,belt, arm, forearm, dumbbell, classe)]
+testing<-testing[,c(user,belt, arm, forearm, dumbbell, id)]
 
 # remove variables containing just NA values:
 training<-training[,apply(apply(training,2,is.na),2,sum)==0]
