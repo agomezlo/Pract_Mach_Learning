@@ -67,6 +67,16 @@ testing&lt;-testing[,apply(apply(testing,2,is.na),2,sum)==0]
 </code></pre>
 
 <h2>
+<a id="data-splitting" class="anchor" href="#data-splitting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data splitting</h2>
+
+<p>The train and test data are constructed from training data: 70% and 30% respectively:</p>
+
+<pre><code>inTrain&lt;-createDataPartition(y=training$classe, p=0.7, list=FALSE)
+train&lt;-training[inTrain,]
+test&lt;-training[-inTrain,]
+</code></pre>
+
+<h2>
 <a id="building-some-models-getting-the-best-accuracy" class="anchor" href="#building-some-models-getting-the-best-accuracy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building some models: getting the best accuracy.</h2>
 
 <pre><code>mod1 &lt;- train(classe ~.,method="lda",data=train)
