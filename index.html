@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Pract mach learning</h1>
-      <h2 class="project-tagline">Coursera Practical Machine Learning. Project write up (October 2015)</h2>
+      <h2 class="project-tagline">Coursera. Practical Machine Learning. Project write up (October 2015)</h2>
       <a href="https://github.com/agomezlo/Practical-Machine-Learning" class="btn">View on GitHub</a>
       <a href="https://github.com/agomezlo/Practical-Machine-Learning/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/agomezlo/Practical-Machine-Learning/tarball/master" class="btn">Download .tar.gz</a>
@@ -57,7 +57,7 @@ dim(testing)
 <h2>
 <a id="cleaning-the-data" class="anchor" href="#cleaning-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cleaning the data</h2>
 
-<p>Remove variables which contain just NA vales.</p>
+<p>Removing variables which contain just NA vales.</p>
 
 <pre><code>training&lt;-training[,apply(apply(training,2,is.na),2,sum)==0]
 testing&lt;-testing[,apply(apply(testing,2,is.na),2,sum)==0]
