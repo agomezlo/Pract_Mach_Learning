@@ -36,7 +36,7 @@ testing&lt;- read.csv("~/Desktop/.../pml-testing.csv")
 <h2>
 <a id="select-useful-features" class="anchor" href="#select-useful-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Select useful features</h2>
 
-<p>Detecting the features, we may remove unuseful features for the analysis ("X","raw_timestamp_part_1", etc.)     </p>
+<p>Detecting the right features, we may remove unuseful features for the analysis ("X","raw_timestamp_part_1", etc.)     </p>
 
 <pre><code>user&lt;-grep("user",names(training), value=FALSE) 
 belt&lt;-grep("belt",names(training), value=FALSE) 
