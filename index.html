@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Pract mach learning</h1>
-      <h2 class="project-tagline">Coursera Practical Machine Learning. Project write up.</h2>
+      <h2 class="project-tagline">Coursera Practical Machine Learning. Project write up (October 2015)</h2>
       <a href="https://github.com/agomezlo/Practical-Machine-Learning" class="btn">View on GitHub</a>
       <a href="https://github.com/agomezlo/Practical-Machine-Learning/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/agomezlo/Practical-Machine-Learning/tarball/master" class="btn">Download .tar.gz</a>
@@ -100,7 +100,7 @@ combPred &lt;- predict(combModFit,newdata=predDF)
 confusionMatrix(combPred, test$classe) # Accuracy : 0.9925 
 </code></pre>
 
-<p>As can be appreciated, the accuracy obtained after combining some models does not improve the accuracy obtained using Random Forest. That is the reason the model 6 which use Randon Forest will be used instead of the combination of models.</p>
+<p>As can be appreciated, the accuracy obtained after combining some models does not improve the accuracy obtained using Random Forest. That is the reason the model 6, which use Randon Forest, will be used instead of the combination of models.</p>
 
 <h2>
 <a id="final-prediction-on-the-test-set" class="anchor" href="#final-prediction-on-the-test-set" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final prediction on the test set</h2>
@@ -142,7 +142,7 @@ Balanced Accuracy      0.9983   0.9939   0.9945   0.9909   0.9968
 </code></pre>
 
 <h2>
-<a id="obtained-results" class="anchor" href="#obtained-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Obtained results</h2>
+<a id="final-results" class="anchor" href="#final-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final results</h2>
 
 <pre><code>predict(mod6,testing) 
 B A B A A E D B A A B C B A E E A B B B
