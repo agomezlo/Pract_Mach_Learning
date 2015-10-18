@@ -44,9 +44,10 @@ arm&lt;-grep("[^fore]arm",names(training), value=FALSE)
 forearm&lt;-grep("forearm",names(training), value=FALSE)
 dumbbell&lt;-grep("dumbbell",names(training), value=FALSE)
 classe&lt;-grep("classe",names(training), value=FALSE)
+id&lt;-grep("id",names(testing), value=FALSE)
 
 training&lt;-training[,c(user,belt, arm, forearm, dumbbell, classe)]
-testing&lt;-testing[,c(user,belt, arm, forearm, dumbbell, classe)]
+testing&lt;-testing[,c(user,belt, arm, forearm, dumbbell, id)]
 </code></pre>
 
 <p>It is obtained 54 features in the training and test set.</p>
