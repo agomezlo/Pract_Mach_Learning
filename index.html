@@ -27,7 +27,7 @@
 <h2>
 <a id="loading-the-data" class="anchor" href="#loading-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Loading the data</h2>
 
-<p>Unuseful values at observations as "","NA","#DIV/0!" are eliminated from the training data.</p>
+<p>Simultaneously data are loaded, unuseful values at observations as "","NA","#DIV/0!" are eliminated from the training set.</p>
 
 <pre><code>training&lt;- read.csv("~/Desktop/.../pml-training.csv", na.strings=c("","NA","#DIV/0!"))
 testing&lt;- read.csv("~/Desktop/.../pml-testing.csv")
@@ -36,7 +36,7 @@ testing&lt;- read.csv("~/Desktop/.../pml-testing.csv")
 <h2>
 <a id="select-useful-features" class="anchor" href="#select-useful-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Select useful features</h2>
 
-<p>Detecting the right features, we may remove unuseful features for the analysis ("X","raw_timestamp_part_1", etc.)     </p>
+<p>Detecting the right features, we may remove unuseful ones for the analysis (e.g.,"X","raw_timestamp_part_1")     </p>
 
 <pre><code>user&lt;-grep("user",names(training), value=FALSE) 
 belt&lt;-grep("belt",names(training), value=FALSE) 
@@ -61,7 +61,7 @@ dim(testing)
 <h2>
 <a id="cleaning-the-data" class="anchor" href="#cleaning-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cleaning the data</h2>
 
-<p>Removing variables which contain just NA vales.</p>
+<p>Removing variables which contain just "NA" vales.</p>
 
 <pre><code>training&lt;-training[,apply(apply(training,2,is.na),2,sum)==0]
 testing&lt;-testing[,apply(apply(testing,2,is.na),2,sum)==0]
@@ -114,10 +114,10 @@ combPred &lt;- predict(combModFit,newdata=predDF)
 confusionMatrix(combPred, test$classe) # Accuracy : 0.9925 
 </code></pre>
 
-<p>As can be appreciated, the accuracy obtained after combining some models does not improve the accuracy obtained using Random Forest. That is the reason the model 6, which use Randon Forest, will be used instead of the combination of models.</p>
+<p>As can be appreciated, the accuracy obtained after combining some models does not improve the accuracy obtained using Random Forest. That is the reason the model 6 (Random Forest), will be used instead of the combination of models.</p>
 
 <h2>
-<a id="final-prediction-on-the-test-set" class="anchor" href="#final-prediction-on-the-test-set" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final prediction on the test set</h2>
+<a id="final-prediction-on-the-test-set-with-random-forest-algorithm" class="anchor" href="#final-prediction-on-the-test-set-with-random-forest-algorithm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final prediction on the test set with Random Forest algorithm</h2>
 
 <pre><code>pred6&lt;-predict(mod6,test)
 
